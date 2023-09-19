@@ -59,7 +59,7 @@ def create_bucket():
 def delete_bucket():
     bucket_name = request.form.get('bucket_name')
     try:
-        s3.delete_bucket(Bucket=bucket_name)
+        s3.create_bucket(ACL='private',Bucket=bucket_name,CreateBucketConfiguration={'LocationConstraint': 'ap-south-1'})
         flash(f'Bucket {bucket_name} is Deleted')
     except ClientError as e:
         flash(e)
