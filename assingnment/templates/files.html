@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+        #link {
+            position: relative;
+            top: 100px;
+            left: 100px;
+            border: 2px solid red;
+            border-radius: 10px;
+            width: 80px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            background-color: aqua;
+
+        }
+
+        a {
+            color: black;
+        }
+        .form{
+            top: 80px;
+            position: relative;
+            border: 5px solid red;
+            height: 400px;
+            width: 700px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h2{
+            color: red;
+        }
+        label{
+            font-size: 20px;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="link"><a href="/">HOME</a></div>
+    <center>
+
+
+        <h1>Enter File details to upload</h1>
+
+
+        {% for message in get_flashed_messages() %}
+        <h2>{{ message }}</h2>
+        {% endfor %}
+
+        <div class="form">
+            <form action="/upload" method="POST" enctype="multipart/form-data">
+
+                <div class="form-group">
+                    <label for="file_path">Select the file to update :</label> 
+                    <input type="file" class="form-control" name="file" id="file"
+                        placeholder="Select the file to update ">
+                </div>
+
+                <div class="form-group">
+                    <label for="bucket">Enter the bucket name to upload file :</label> 
+                    <input type="text" class="bucket" name="bucket" id="bucket"
+                        placeholder="Enter the bucket name">
+                </div>
+                <button type="submit">Upload</button>
+            </form>
+        </div>
+    </center>
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <style>
+        .form{
+            position: relative;
+            top: 100px;
+            border: solid red;
+            border-radius: 10px;
+            height: 300px;
+            width: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #link {
+            position: relative;
+            top: 100px;
+            left: 100px;
+            border: 2px solid red;
+            border-radius: 10px;
+            width: 80px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            background-color: aqua;
+
+        }
+
+        a {
+            color: black;
+        }
+
+        h4 {
+            color: red;
+        }
+        #error{
+            width: 500px;
+        }
+    </style>
+    <title>Create or Delete</title>
+</head>
+
+<body>
+
+    <div id="link"><a href="/">HOME</a></div>
+
+
+    <center>
+        <h1>Enter Details to Create or Delete</h1>
+
+        <div>
+            {% for message in get_flashed_messages() %}
+           <div id="error"><h4>{{ message }}</h4></div> 
+            {% endfor %}
+
+            <div class="form">
+                <form action="" method="POST">
+                    <div class="form-group">
+                        <label for="bucket_name">Enter Bucket Name :</label> 
+                        <input type="text" class="form-control" name="bucket_name" id="bucket_name" placeholder="Enter Bucket Name" required>
+                    </div>
+                   
+
+                    <button formaction="create_bucket" type="submit">Create Bucket</button>
+
+
+                    <button formaction="delete_bucket" type="submit">Delete Bucket</button>
+                </form>
+            </div>
+
+
+        </div>
+    </center>
+</body>
+
+</html>

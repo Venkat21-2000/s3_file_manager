@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #link {
+            position: relative;
+            top: 100px;
+            left: 100px;
+            border: 2px solid red;
+            border-radius: 10px;
+            width: 80px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            background-color: aqua;
+
+        }
+
+        a {
+            color: black;
+        }
+
+        h3 {
+            color: aqua;
+        }
+
+        .cent {
+            position: relative;
+            top: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid red;
+            width: 500px;
+            height: auto;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="link"><a href="/">HOME</a></div>
+
+    <center>
+
+
+        {% if listOfFiles|length != 0 %}
+
+        <h1>Here is your list of Files! </h1>
+
+        <div class="cent">
+
+
+            <div class="container">
+
+                {% for item in listOfFiles %}
+                <h3>{{item}}</h3>
+                {% endfor %}
+            </div>
+
+
+            {% else %}
+            {% for message in get_flashed_messages() %}
+            <h2>{{ message }}</h2>
+            {% endfor %}
+            {% endif %}
+
+        </div>
+
+    </center>
+
+
+</body>
+
+</html>

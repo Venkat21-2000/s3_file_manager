@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .form{
+            top: 100px;
+            position: relative;
+            border: 5px solid black;
+            height: 400px;
+            width: 700px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        #link{
+            position: relative;
+            top: 100px;
+            left: 100px;
+            border: 2px solid red;
+            border-radius: 10px;
+            width: 80px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            background-color: aqua;
+            
+        }
+        a{
+            color: black;
+        }
+       
+
+        h1 {
+            color: blue;
+        }
+
+        h2 {
+            color: red;
+        }
+
+        input{
+            width:680px
+        }
+    </style>
+    <title>Move And Copy File</title>
+</head>
+
+<body>
+
+    <div id="link"><a href="/">HOME</a></div>
+
+    <center>
+
+        <h1>Enter details to copy/move a file :</h1>
+
+        {% for message in get_flashed_messages() %}
+        <h2>{{ message }}</h2>
+        {% endfor %}
+
+
+        <div class="form">
+            <div id="inside">
+                <form action="" method="POST">
+                    <div class="form-group">
+                        <label for="source_bucket_name">Enter Source Bucket Name :</label> 
+                        <input type="text" class="form-control" name="source_bucket_name" id="formGroupExampleInput"
+                            placeholder="Enter Source Bucket Name ">
+                    </div>
+                    <div class="form-group">
+                        <label for="source_file_name">Enter Source file Name :</label>
+                        <input type="text" class="form-control" name="source_file_name" id="source_file_name"
+                            placeholder="Enter Source file Name ">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dest_bucket_name">Enter Destination Bucket Name :</label>
+                        <input type="text" class="form-control" name="dest_bucket_name" id="dest_bucket_name"
+                            placeholder="Enter Destination Bucket Name ">
+                    </div>
+
+                    <button type="submit" formaction="/move">Move File</button>
+                    <button type="submit" formaction="/copy">Copy File</button>
+
+
+                </form>
+            </div>
+
+        </div>
+
+    </center>
+
+</body>
+
+</html>

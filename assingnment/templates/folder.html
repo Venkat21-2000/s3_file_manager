@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+        #link {
+            position: relative;
+            top: 100px;
+            left: 100px;
+            border: 2px solid red;
+            border-radius: 10px;
+            width: 80px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            background-color: aqua;
+
+        }
+
+        a {
+            color: black;
+        }
+
+        .creatfolder {
+            position: relative;
+            border: 2px solid red;
+            top: 100px;
+            border-radius: 10px;
+            height: 300px;
+            width: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        h2{
+            color: red;
+        }
+        #msg{
+            width:500px;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="link"><a href="/">HOME</a></div>
+
+    <center>
+        <h1>Enter details to create/delete a folder :</h1><br>
+
+        {% for message in get_flashed_messages() %}
+        <div id="msg"><h2>{{ message }}</h2></div>
+        {% endfor %}
+
+        <div class="creatfolder">
+
+
+            <form action="" method="POST">
+
+                <div class="form-group">
+                    <label for="bucket_name">Enter the Name of Bucket :</label>
+                    <input type="text" class="form-control" name="bucket_name" id="bucket_name"
+                        placeholder="Enter the Name of Bucket ">
+                </div>
+
+                <div class="form-group">
+                    <label for="folder_name">Enter the Name of Folder :</label>
+                    <input type="text" class="form-control" name="folder_name" id="folder_name"
+                        placeholder="Enter the Name of Folder ">
+                </div>
+
+
+                <button formaction="create_folder" type="submit">CREATE</button>
+                <button formaction="delete_folder" type="submit">DELETE</button>
+
+            </form>
+        </div>
+
+        </div>
+    </center>
+
+</body>
+
+</html>
